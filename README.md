@@ -39,8 +39,28 @@ thrift -gen go:package_prefix=github.com/hnakamur/thrift-go-tutorial/gen-go/ tut
 thrift -gen go:package_prefix=github.com/hnakamur/thrift-go-tutorial/gen-go/ shared.thrift
 ```
 
-### Build generated go sources
+### Build tutorial example
 
 ```
-(cd gen-go/tutorial && go build)
+(cd src && go build -o tutorial)
 ```
+
+## How to run
+
+Run the server.
+
+```
+./src/tutorial -server
+```
+
+Run the client.
+
+```
+$ ./src/tutorial
+ping()
+1+1=2
+Invalid operation: InvalidOperation({WhatOp:4 Why:Cannot divide by 0})
+error running client: InvalidOperation({WhatOp:4 Why:Cannot divide by 0})
+```
+
+The error above is intentional error (division by 0).
