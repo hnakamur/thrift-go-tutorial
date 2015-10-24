@@ -38,15 +38,17 @@ func handleClient(client *tutorial.CalculatorClient) (err error) {
 	work.Op = tutorial.Operation_DIVIDE
 	work.Num1 = 1
 	work.Num2 = 0
-	quotient, err := client.Calculate(1, work)
-	if err != nil {
+	quotient, err2 := client.Calculate(1, work)
+	if err2 != nil {
 		switch v := err.(type) {
 		case *tutorial.InvalidOperation:
 			fmt.Println("Invalid operation:", v)
 		default:
-			fmt.Println("Error during operation:", err)
+			fmt.Println("Error during operation:", err2)
 		}
-		return err
+		if err == nil {
+			err = err2
+		}
 	} else {
 		fmt.Println("Whoa we can divide by 0 with new value:", quotient)
 	}
@@ -54,23 +56,27 @@ func handleClient(client *tutorial.CalculatorClient) (err error) {
 	work.Op = tutorial.Operation_SUBTRACT
 	work.Num1 = 15
 	work.Num2 = 10
-	diff, err := client.Calculate(1, work)
-	if err != nil {
+	diff, err2 := client.Calculate(1, work)
+	if err2 != nil {
 		switch v := err.(type) {
 		case *tutorial.InvalidOperation:
 			fmt.Println("Invalid operation:", v)
 		default:
-			fmt.Println("Error during operation:", err)
+			fmt.Println("Error during operation:", err2)
 		}
-		return err
+		if err == nil {
+			err = err2
+		}
 	} else {
 		fmt.Print("15-10=", diff, "\n")
 	}
 
-	log, err := client.GetStruct(1)
-	if err != nil {
-		fmt.Println("Unable to get struct:", err)
-		return err
+	log, err2 := client.GetStruct(1)
+	if err2 != nil {
+		fmt.Println("Unable to get struct:", err2)
+		if err == nil {
+			err = err2
+		}
 	} else {
 		fmt.Println("Check log:", log.Value)
 	}

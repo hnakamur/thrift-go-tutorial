@@ -9,7 +9,7 @@ These files below are copied from https://github.com/apache/thrift/tree/b343feee
 * shared.thrift
 * server.crt
 * server.key
-* src/*.go
+* src/\*.go
 
 ## Prerequisite
 
@@ -59,7 +59,9 @@ Run the client.
 $ ./src/tutorial
 ping()
 1+1=2
-Invalid operation: InvalidOperation({WhatOp:4 Why:Cannot divide by 0})
+Error during operation: InvalidOperation({WhatOp:4 Why:Cannot divide by 0})
+15-10=5
+Check log: 5
 error running client: InvalidOperation({WhatOp:4 Why:Cannot divide by 0})
 ```
 
