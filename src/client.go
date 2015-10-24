@@ -22,8 +22,9 @@ package main
 import (
 	"crypto/tls"
 	"fmt"
+
 	"git.apache.org/thrift.git/lib/go/thrift"
-	"tutorial"
+	"github.com/hnakamur/thrift-go-tutorial/gen-go/tutorial"
 )
 
 func handleClient(client *tutorial.CalculatorClient) (err error) {

@@ -21,9 +21,10 @@ package main
 
 import (
 	"fmt"
-	"shared"
 	"strconv"
-	"tutorial"
+
+	"github.com/hnakamur/thrift-go-tutorial/gen-go/shared"
+	"github.com/hnakamur/thrift-go-tutorial/gen-go/tutorial"
 )
 
 type CalculatorHandler struct {
