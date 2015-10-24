@@ -66,3 +66,9 @@ error running client: InvalidOperation({WhatOp:4 Why:Cannot divide by 0})
 ```
 
 The error above is intentional error (division by 0).
+
+## How to generate API document
+
+```
+thrift -r --gen html tutorial.thrift
+```
